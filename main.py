@@ -13,6 +13,8 @@ ENTRY = "He proposed. She took the WiFi."
 
 
 def main():
+    if not 1 <= len(ENTRY) <= 32 or not ENTRY.strip():
+        raise ValueError("entry must be 1 to 32 non-blank characters")
     output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
     entry_path = os.path.join(output_dir, "entry.txt")
